@@ -9,14 +9,14 @@ module.exports = {
   run: async (client, message, args) => {
     const search = `${args}`;
     if (!search)
-      return message.reply('Please enter the anime you want!');
+      return message.reply('Please enter a anime!');
 
     malScraper.getInfoFromName(search)
       .then((data) => {
         const malEmbed = new Discord.MessageEmbed()
-          .setAuthor(`My Anime List search result for ${args}`.split(',').join(' '))
+          .setAuthor(`My Anime search result for ${args}`.split(',').join(' '))
           .setThumbnail(data.picture)
-          .setColor('#eda1be') //What ever u want color!
+          .setColor('#eda1be')
           .addField('Premiered', `\`${data.premiered}\``, true)
           .addField('Broadcast', `\`${data.broadcast}\``, true)
           .addField('Genres', `\`${data.genres}\``, true)
